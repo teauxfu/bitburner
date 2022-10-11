@@ -36,6 +36,7 @@ import { GetServer } from "../../Server/AllServers";
 import { ArcadeRoot } from "../../Arcade/ui/ArcadeRoot";
 import { FactionNames } from "../../Faction/data/FactionNames";
 import { BitNodeMultipliers } from "../../BitNode/BitNodeMultipliers";
+import { startEnderWar } from "@EnderWar/EnderWar";
 
 type IProps = {
   loc: Location;
@@ -302,11 +303,22 @@ export function SpecialLocation(props: IProps): React.ReactElement {
   }
 
   function renderGlitch(): React.ReactElement {
+    if (Player.bitNodeN !== 14) {
+      return (
+        <>
+          <Typography>
+            <CorruptableText content={"An eerie aura surrounds this area. You feel you should leave."} />
+          </Typography>
+        </>
+      );
+    }
     return (
       <>
         <Typography>
-          <CorruptableText content={"An eerie aura surrounds this area. You feel you should leave."} />
+          Here lies a portal out of the simulation. You don't know what lies beyond it so you should send your sleeves
+          only. Doing so will be seen as an act of aggression against the Enders.
         </Typography>
+        <Button onClick={startEnderWar}>Send your sleeves to the real Earth</Button>
       </>
     );
   }

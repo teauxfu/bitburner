@@ -77,6 +77,7 @@ import _functions from "lodash/functions";
 import { Apr1 } from "./Apr1";
 import { isFactionWork } from "../Work/FactionWork";
 import { V2Modal } from "../utils/V2Modal";
+import { EnderWarRoot } from "@EnderWar/ui/EnderWarRoot";
 
 const htmlLocation = location;
 
@@ -136,6 +137,7 @@ export let Router: IRouter = {
   toAchievements: uninitialized,
   toThemeBrowser: uninitialized,
   toImportSave: uninitialized,
+  toEnderWar: uninitialized,
 };
 
 function determineStartPage(): Page {
@@ -268,6 +270,9 @@ export function GameRoot(): React.ReactElement {
       setImportString(base64save);
       setImportAutomatic(automatic);
       setPage(Page.ImportSave);
+    },
+    toEnderWar: () => {
+      setPage(Page.EnderWar);
     },
   };
 
@@ -472,6 +477,9 @@ export function GameRoot(): React.ReactElement {
       withSidebar = false;
       withPopups = false;
       bypassGame = true;
+    }
+    case Page.EnderWar: {
+      mainPage = <EnderWarRoot />;
     }
   }
 

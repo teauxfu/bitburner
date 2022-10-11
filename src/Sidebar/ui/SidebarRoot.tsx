@@ -44,6 +44,7 @@ import PublicIcon from "@mui/icons-material/Public";
 import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MyLocationIcon from "@mui/icons-material/MyLocation";
 
 import { Router } from "../../ui/GameRoot";
 import { Page } from "../../ui/Router";
@@ -58,6 +59,7 @@ import { ProgramsSeen } from "../../Programs/ui/ProgramsRoot";
 import { InvitationsSeen } from "../../Faction/ui/FactionsRoot";
 import { hash } from "../../hash/hash";
 import { Locations } from "../../Locations/Locations";
+import { enderWar } from "@EnderWar/EnderWar";
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: theme.spacing(31),
@@ -213,6 +215,10 @@ export function SidebarRoot(props: IProps): React.ReactElement {
 
   function clickTravel(): void {
     Router.toTravel();
+  }
+
+  function clickEnderWar(): void {
+    Router.toEnderWar();
   }
 
   function clickJob(): void {
@@ -634,6 +640,27 @@ export function SidebarRoot(props: IProps): React.ReactElement {
               </Typography>
             </ListItemText>
           </ListItem>
+
+          {enderWar.world.length > 0 && (
+            <ListItem
+              button
+              key={"EnderWar"}
+              className={clsx({
+                [classes.active]: props.page === Page.EnderWar,
+              })}
+              onClick={clickEnderWar}
+            >
+              <ListItemIcon>
+                <Tooltip title={!open ? "Ender War" : ""}>
+                  <MyLocationIcon color={props.page !== Page.EnderWar ? "secondary" : "primary"} />
+                </Tooltip>
+              </ListItemIcon>
+              <ListItemText>
+                <Typography color={props.page !== Page.EnderWar ? "secondary" : "primary"}>Ender War</Typography>
+              </ListItemText>
+            </ListItem>
+          )}
+
           <ListItem
             button
             key={"Travel"}

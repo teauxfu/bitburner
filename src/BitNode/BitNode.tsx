@@ -447,6 +447,29 @@ export function initBitNodes() {
       </>
     ),
   );
+
+  BitNodes["BitNode14"] = new BitNode(
+    14,
+    2,
+    "War Against the Enders: Prologue",
+    "Taking the fight home.",
+    (
+      <>
+        A strange phenomenon has been discovered in Ishima. Some theoritical physicist believe it can shed light on the
+        age old question: "Is the universe a simulation?"
+        <br />
+        <br />
+        You think you can use it to strike the Enders where it hurts.
+        <br />
+        <br />
+        Destroying this BitNode will give you Source-File 14, or if you already have this Source-File it will upgrade
+        its level up to a maximum of 3. This Source-File lets you enter the real Earth from other BitNodes.
+        <br />
+        <br />
+        Each level of this Source-File reduces the starting shock of sleeves by 1/3.
+      </>
+    ),
+  );
 }
 
 export const defaultMultipliers: IBitNodeMultipliers = {
@@ -870,6 +893,50 @@ export function getBitNodeMultipliers(n: number, lvl: number): IBitNodeMultiplie
         CorporationSoftcap: 0.3,
         WorldDaemonDifficulty: 3,
         GangUniqueAugs: 0.1,
+      });
+    }
+    case 14: {
+      return Object.assign(mults, {
+        PurchasedServerSoftcap: 1.8,
+
+        HackingLevelMultiplier: 0.1,
+        StrengthLevelMultiplier: 0.2,
+        DefenseLevelMultiplier: 0.2,
+        DexterityLevelMultiplier: 0.2,
+        AgilityLevelMultiplier: 0.2,
+
+        ServerMaxMoney: 0.1,
+        ServerStartingMoney: 0.2,
+
+        ServerStartingSecurity: 5,
+
+        ScriptHackMoney: 0.05,
+        CompanyWorkMoney: 0.2,
+        CrimeMoney: 0.2,
+        HacknetNodeMoney: 0.2,
+        CodingContractMoney: 0.2,
+
+        CompanyWorkExpGain: 0.05,
+        ClassGymExpGain: 0.05,
+        FactionWorkExpGain: 0.05,
+        HackExpGain: 0.01,
+        CrimeExpGain: 0.05,
+
+        FactionWorkRepGain: 0.1,
+
+        FourSigmaMarketDataCost: 1000,
+        FourSigmaMarketDataApiCost: 1000,
+
+        CorporationValuation: 0.00001,
+
+        BladeburnerRank: 0.15,
+        BladeburnerSkillCost: 5,
+        StaneksGiftPowerMultiplier: 0.3,
+        StaneksGiftExtraSize: -3,
+        GangSoftcap: 0.2,
+        CorporationSoftcap: 0,
+        WorldDaemonDifficulty: 4,
+        GangUniqueAugs: 0,
       });
     }
     default: {

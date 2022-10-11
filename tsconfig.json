@@ -2,7 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@player": ["src/Player"]
+      "@player": ["src/Player"],
+      "@EnderWar/*": ["src/EnderWar/*"]
     },
     "esModuleInterop": true,
     "isolatedModules": true,

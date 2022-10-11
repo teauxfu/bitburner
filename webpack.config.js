@@ -189,6 +189,7 @@ module.exports = (env, argv) => {
       extensions: [".tsx", ".ts", ".js", ".jsx"],
       alias: {
         "@player": path.resolve(__dirname, "src/Player"),
+        "@EnderWar": path.resolve(__dirname, "src/EnderWar"),
       },
     },
     stats: statsConfig,

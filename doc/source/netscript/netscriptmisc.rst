@@ -13,11 +13,12 @@ and read one element at a time from the port. When you read data from a port,
 the element that is read is removed from the port.
 
 The :js:func:`read`, :js:func:`write`, :js:func:`tryWrite`, :js:func:`clear`, and :js:func:`peek`
-Netscript functions can be used to interact with ports.
-
+Netscript functions can be used to interact with ports. 
 Right now, there are only 20 ports for Netscript, denoted by the number 1
 through 20. When using the functions above, the ports are specified
 by passing the number as the first argument.
+Only string and number types may be written to ports. 
+The default maximum capacity of a given port is 50, but this can be changes in Options > System.
 
 IMPORTANT: The data inside ports are not saved! This means if you close and
 re-open the game, or reload the page then you will lose all of the data in
@@ -57,7 +58,7 @@ And the data in port 1 will look like::
 
     [3, 4, 5, 6, 7, 8, 9]
 
-.. warning:: In :ref:`netscriptjs`, do not trying writing base
+.. warning:: In :ref:`netscriptjs`, do not try writing base
              `Promises <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_
              to a port.
 
